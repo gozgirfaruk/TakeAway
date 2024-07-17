@@ -1,32 +1,50 @@
-﻿using TakeAway.CatalogApi.Dtos.DailyDiscountDtos;
+﻿using AutoMapper;
+using MongoDB.Driver;
+using TakeAway.CatalogApi.Dtos.DailyDiscountDtos;
+using TakeAway.CatalogApi.Entities;
+using TakeAway.CatalogApi.Settings;
 
 namespace TakeAway.CatalogApi.Services.DailyDiscountServices
 {
     public class DailyDiscountService : IDailyDiscountService
     {
-        public Task CreateDailyDiscountAsync(CreateDailyDiscountDto DailyDiscountDto)
+        private readonly IMongoCollection<DailyDiscount> _dailyDiscountCollection;
+        private readonly IMapper _mapper;
+
+        public DailyDiscountService(IMapper mapper,IDatabaseSettings _databaseSettings)
         {
-            throw new NotImplementedException();
+            var client = new MongoClient(_databaseSettings.ConnectionString);
+            var database = client.GetDatabase(_databaseSettings.DatabaseName);
+            _dailyDiscountCollection=database.GetCollection<DailyDiscount>(_databaseSettings.DailyDiscountCollectionName);
+            _mapper = mapper;
         }
 
-        public Task DeleteDailyDiscountAsync(string id)
+        public async Task CreateDailyDiscountAsync(CreateDailyDiscountDto dailyDiscountDto)
         {
-            throw new NotImplementedException();
+           await _dailyDiscountCollection.InsertOneAsync(_mapper.Map<DailyDiscount>(dailyDiscountDto));
         }
 
-        public Task<List<ResultDailyDiscountDto>> GetAllDailyDiscountAsync()
+        public async Task DeleteDailyDiscountAsync(string id)
         {
-            throw new NotImplementedException();
+            await _dailyDiscountCollection.DeleteOneAsync(x=>x.DailyDiscountID == id);
         }
 
-        public Task<GetByIdDailyDiscountDto> GetByIdDailyDiscountAsync(string id)
+        public async Task<List<ResultDailyDiscountDto>> GetAllDailyDiscountAsync()
         {
-            throw new NotImplementedException();
+            var values = await _dailyDiscountCollection.Find(x=>true).ToListAsync();
+            return _mapper.Map<List<ResultDailyDiscountDto>>(values);
         }
 
-        public Task UpdateDailyDiscountAsync(UpdateDailyDiscountDto DailyDiscountDto)
+        public async Task<GetByIdDailyDiscountDto> GetByIdDailyDiscountAsync(string id)
         {
-            throw new NotImplementedException();
+            var values = await _dailyDiscountCollection.Find(x => x.DailyDiscountID == id).FirstOrDefaultAsync();
+            return _mapper.Map<GetByIdDailyDiscountDto>(values);
+        }
+
+        public async Task UpdateDailyDiscountAsync(UpdateDailyDiscountDto dailyDiscountDto)
+        {
+            var values = _mapper.Map<DailyDiscount>(dailyDiscountDto);
+            await _dailyDiscountCollection.FindOneAndReplaceAsync(x=>x.DailyDiscountID==dailyDiscountDto.DailyDiscountID, values);
         }
     }
 }
