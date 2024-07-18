@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TakeAway.Domain.Entities
+namespace TakeAway.Application.CQRS.Results.AddressResults
 {
-    public class Address
+    public class GetAddressByIdQueryResult
     {
         public int AddressID { get; set; }
         public string UserID { get; set; }

@@ -4,11 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TakeAway.Domain.Entities
+namespace TakeAway.Application.CQRS.Commands.AddressCommands
 {
-    public class Address
+    public class CreateAddressCommand
     {
-        public int AddressID { get; set; }
         public string UserID { get; set; }
         public string Name { get; set; }
         public string Surname { get; set; }

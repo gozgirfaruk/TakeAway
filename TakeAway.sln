@@ -25,7 +25,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TakeAway.CatalogApi", "Serv
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Discount", "Discount", "{ACA61EEC-CFAE-4868-88D9-9E3A9C1E61C7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TakeAway.Discount", "Services\Discount\TakeAway.Discount\TakeAway.Discount.csproj", "{941303FE-D1B4-4A07-97B3-6C1FD14C85E6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TakeAway.Discount", "Services\Discount\TakeAway.Discount\TakeAway.Discount.csproj", "{941303FE-D1B4-4A07-97B3-6C1FD14C85E6}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TakeAway.IdentityServer", "IdentityServer\TakeAway.IdentityServer\TakeAway.IdentityServer.csproj", "{70C26301-92CB-43D5-BC71-5163D58EB3AD}"
 EndProject
@@ -35,9 +35,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastru
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentation", "{B1CB32F0-3585-4D2A-B145-DC3DCF6C2CE9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TakeAway.Application", "Services\Order\Core\TakeAway.Application\TakeAway.Application.csproj", "{8A30ED4D-CC24-4502-98DC-660BD34E792B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TakeAway.Application", "Services\Order\Core\TakeAway.Application\TakeAway.Application.csproj", "{8A30ED4D-CC24-4502-98DC-660BD34E792B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TakeAway.Domain", "Services\Order\Core\TakeAway.Domain\TakeAway.Domain.csproj", "{CDBC1002-BFD6-47F9-9E0F-9D407BC7BAB7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TakeAway.Domain", "Services\Order\Core\TakeAway.Domain\TakeAway.Domain.csproj", "{CDBC1002-BFD6-47F9-9E0F-9D407BC7BAB7}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TakeAway.Persistance", "Services\Order\Infrastructure\TakeAway.Persistance\TakeAway.Persistance.csproj", "{1CBC9120-C0D6-41AF-ACB4-9B62BA3939A4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TakeAway.OrderPresentation", "Services\Order\Presentation\TakeAway.OrderPresentation\TakeAway.OrderPresentation.csproj", "{B5102813-8AD4-4CFF-9D49-075C9C12EFD7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -65,6 +69,14 @@ Global
 		{CDBC1002-BFD6-47F9-9E0F-9D407BC7BAB7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CDBC1002-BFD6-47F9-9E0F-9D407BC7BAB7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CDBC1002-BFD6-47F9-9E0F-9D407BC7BAB7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1CBC9120-C0D6-41AF-ACB4-9B62BA3939A4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1CBC9120-C0D6-41AF-ACB4-9B62BA3939A4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1CBC9120-C0D6-41AF-ACB4-9B62BA3939A4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1CBC9120-C0D6-41AF-ACB4-9B62BA3939A4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B5102813-8AD4-4CFF-9D49-075C9C12EFD7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B5102813-8AD4-4CFF-9D49-075C9C12EFD7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B5102813-8AD4-4CFF-9D49-075C9C12EFD7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B5102813-8AD4-4CFF-9D49-075C9C12EFD7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -85,6 +97,8 @@ Global
 		{B1CB32F0-3585-4D2A-B145-DC3DCF6C2CE9} = {F9E53971-D93A-4778-A9EC-30FB18BBAF9D}
 		{8A30ED4D-CC24-4502-98DC-660BD34E792B} = {4D60397D-5838-4248-BA0B-AD96D3421D6F}
 		{CDBC1002-BFD6-47F9-9E0F-9D407BC7BAB7} = {4D60397D-5838-4248-BA0B-AD96D3421D6F}
+		{1CBC9120-C0D6-41AF-ACB4-9B62BA3939A4} = {E159AF26-42F9-4019-A042-920D030819C4}
+		{B5102813-8AD4-4CFF-9D49-075C9C12EFD7} = {B1CB32F0-3585-4D2A-B145-DC3DCF6C2CE9}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {F92A8A4A-0671-4B8B-82D3-10BB5910B6D4}
