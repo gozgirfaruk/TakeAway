@@ -1,8 +1,19 @@
+using Microsoft.EntityFrameworkCore;
+using System.Reflection;
+using TakeAway.Comment.Dal.Context;
+using TakeAway.Comment.Services;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-
+var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+builder.Services.AddDbContext<CommentContext>(opt =>
+{
+    opt.UseNpgsql(connectionString);
+});
 builder.Services.AddControllers();
+builder.Services.AddScoped<IUserCommentService,UserCommentService>();
+builder.Services.AddAutoMapper(Assembly.GetExecutingAssembly());
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
