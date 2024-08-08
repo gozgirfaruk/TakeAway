@@ -12,8 +12,9 @@ namespace TakeAway.IdentityServer.Tools
     {
         public static TokenResponseViewModel GenerateToken(GetCheckAppUserViewModel model)
         {
+            model.Role = "Premium";
             var claims = new List<Claim>();
-            claims.Add(new Claim(ClaimTypes.Role, model.Id));
+            claims.Add(new Claim(ClaimTypes.Role, model.Role));
             claims.Add(new Claim(ClaimTypes.NameIdentifier, model.Id));
             claims.Add(new Claim("UserName", model.UserName));
 
